@@ -1,10 +1,11 @@
-import { Register } from "./BikeServiceForm";
+import { Homepage01 } from "./PageinHome";
+
 
 
 function App() {
   return (
     <>
-    <Register/>
+    <Homepage01/>
     </>
   );
 }
