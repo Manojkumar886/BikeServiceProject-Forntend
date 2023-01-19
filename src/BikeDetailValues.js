@@ -31,3 +31,7 @@ export const list=()=>
 {
     return Bikevalues;
 }
+export const read=(index)=>
+{
+    return Bikevalues[index];
+}

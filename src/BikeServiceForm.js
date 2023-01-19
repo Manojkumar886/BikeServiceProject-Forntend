@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import { create } from './BikeDetailValues'
 import './Image.css'
 
 
@@ -31,6 +32,7 @@ export let Register=()=>
     const register=()=>
     {
         alert('welcome to Zealous Service Center'+JSON.stringify(process))
+        create(process);
     }
     const reset=()=>
     {
