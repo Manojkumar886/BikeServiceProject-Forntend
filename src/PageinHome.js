@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { list } from "./BikeDetailValues";
+import { FetchExact, list, remove } from "./BikeDetailValues";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Register } from "./BikeServiceForm";
 import { Reading } from "./BikeReadPage";
+import { Updating } from "./BikeUpdatePage";
 
 export const Homepage01=()=>
 {
@@ -10,6 +11,8 @@ export const Homepage01=()=>
     const[createview,setCreateview]=useState(false)
     const[readview,setReadview]=useState(false)
     const[pos,setPos]=useState(0)
+    const[updateview,setUpdateview]=useState(false)
+    const[obj,setObj]=useState({})
     const result=()=>
     {
         setTemparray(list)
@@ -36,11 +39,24 @@ export const Homepage01=()=>
                 :
                 (readview)?
                 <>
-                <Reading who={pos}/>
+                <Reading who={pos} />
                 <button className="btn btn-outline-secondary" onClick={
                     ()=>
                     {
                         setReadview(false)
+                    }
+                }>
+                    Back
+                </button>
+                </>
+                :
+                (updateview)?
+                <>
+                <Updating who={pos} mention={obj} />
+                <button className="btn btn-outline-secondary" onClick={
+                    ()=>
+                    {
+                        setUpdateview(false)
                     }
                 }>
                     Back
@@ -88,6 +104,24 @@ export const Homepage01=()=>
                                                     }
                                                 }>
                                                     READ
+                                                </button>
+                                                <button className="btn btn-outline-warning" onClick={
+                                                    ()=>
+                                                    {
+                                                        setUpdateview(true)
+                                                        setPos(ind);
+                                                        setObj(FetchExact(ele.cusName));
+                                                    }
+                                                }>
+                                                    UPDATE
+                                                </button>
+                                                <button className="btn btn-outline-danger" onClick={
+                                                    ()=>
+                                                    {
+                                                        setTemparray(remove(ind))
+                                                    }
+                                                }>
+                                                    DELETE
                                                 </button>
                                             </td>
                                         </tr>
