@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect, useState } from 'react'
 import { read } from './BikeDetailValues'
-export const Reading=(myvalue)=>
+export const Reading=(myvalue)=>  
 {
     const[bikevalue,setBikevalue]=useState({
         "cusId":"",

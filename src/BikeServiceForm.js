@@ -41,7 +41,7 @@ export let Register=()=>
 
     return(
         <>
-            <div className="container bg-dark">
+            <div className="container bg-light">
                 <img src="./Images/BikeForm.webp" id="center1"></img>
             <div className="row justify-content-center">
                 <div className="col-lg-8 col-md-0 col-sm-12 shadow-lg p-3 " id="center">
