@@ -1,29 +1,41 @@
-import { Container, Nav, Navbar } from "react-bootstrap"
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
 import TwoWheelerSharpIcon from '@mui/icons-material/TwoWheelerSharp';
-import HowToRegIcon from '@mui/icons-material/HowToReg';
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
-import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import './Image.css'
 
 
 
 export const Homepage=()=>{
     return(
         <>
-            <Navbar bg="primary" expand="lg">
+        <div id="bc1">
+            <Navbar expand="lg" variant="dark" >
                 <Container>
-                    
-                    <Navbar.Brand href="/" className="">Zealous BikeService<TwoWheelerSharpIcon className="ms-2" ></TwoWheelerSharpIcon></Navbar.Brand>
+                    <Navbar.Brand href="/" className="">Zealous <TwoWheelerSharpIcon></TwoWheelerSharpIcon> Servicecenter</Navbar.Brand>
                     <Navbar.Toggle aria-controls="manoj" />
                     <Navbar.Collapse id="manoj">
-                        <Nav className="ms-3">   
-                            <Nav.Link href="/create">New<HowToRegIcon></HowToRegIcon></Nav.Link>
-                            <Nav.Link href="/update">Update<TipsAndUpdatesIcon></TipsAndUpdatesIcon></Nav.Link>
-                            <Nav.Link href="/read">Read<MarkUnreadChatAltIcon></MarkUnreadChatAltIcon></Nav.Link>
+                        <Nav className="ms-5">   
+                        <NavDropdown title="BikeDetails" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="createbikedetails">Create</NavDropdown.Item>
+                        <NavDropdown.Item href="listallbikedetails">ListAll(update & Read & Delete)</NavDropdown.Item>
+                        </NavDropdown>
+
+                        <NavDropdown title="ServiceDetails" id="basic-nav-dropdown" className="ms-5">
+                        <NavDropdown.Item href="createservicedetail">
+                            Create
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="listallservicedetails">ListAll</NavDropdown.Item>
+                        </NavDropdown>
+                        </Nav>
+                        <Nav className="ms-5">
+                        <button className="btn btn-outline-dark me-5 "   >
+                                Logout
+                        </button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            </div>
         </>
     )
 }

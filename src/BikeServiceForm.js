@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import { create } from './BikeDetailValues'
 import './Image.css'
 
 
-export let Register=()=>
+export let Register01=()=>
 {
     
     const[process,setProcess]=useState({
-        "cusId":"",
+        "cusId":0,
+        "cusBikeno":"",
         "cusName":"",
-        "cusContact":0,
+        "cusContactno":0,
         "cusEmail":"",
-        "cusDate":""
+        "Dateofpurchase":""
     })
 
     const track=(data)=>
@@ -32,7 +32,7 @@ export let Register=()=>
     const register=()=>
     {
         alert('welcome to Zealous Service Center'+JSON.stringify(process))
-        create(process);
+        
     }
     const reset=()=>
     {
@@ -41,15 +41,15 @@ export let Register=()=>
 
     return(
         <>
-            <div className="container bg-light">
-                <img src="./Images/BikeForm.webp" id="center1"></img>
+            <div className="container bg-light mt-5">
+                <span id='center1'></span>
             <div className="row justify-content-center">
                 <div className="col-lg-8 col-md-0 col-sm-12 shadow-lg p-3 " id="center">
                 <h4 className="text-center mt-5 mb-5" id='center2'><i class="bi bi-bicycle"></i> Bike Details Form</h4>
                     <div className="row justify-content-center " >
                         <div className="row">
                             <div className="col">
-                                <label className="form-label" >RegisterNumber</label>
+                                <label className="form-label" >CustomerId</label>
                                 <input type="text" 
                                  name="cusId"
                                  onChange={track}
@@ -57,21 +57,29 @@ export let Register=()=>
                                 className="form-control" />
                             </div>
                             <div className="col">
-                                <label className="form-label" >CustomerName</label>
+                                <label className="form-label" >CustomerBikeno</label>
                                 <input type="text" 
-                                name="cusName"
+                                name="cusBikeno"
                                 onChange={track}
-                                value={process.cusName}
+                                value={process.cusBikeno}
                                 className="form-control" />
                             </div>
                         </div>
                     </div>  
                     <div className="mt-3">
-                                <label className="form-label" >CustomerContact</label>
+                                <label className="form-label" >CustomerName</label>
                                 <input type="tel" 
-                                name="cusContact"
+                                name="cusName"
                                 onChange={track}
-                                value={process.cusContact}
+                                value={process.cusName}
+                                className="form-control" />
+                    </div>
+                    <div className="mt-3">
+                                <label className="form-label" >CustomerContactNO</label>
+                                <input type="tel" 
+                                name="cusContactno"
+                                onChange={track}
+                                value={process.cusContactno}
                                 className="form-control" />
                     </div>
                     <div className="mt-3">
@@ -85,8 +93,8 @@ export let Register=()=>
                     <div className="mt-3">
                                 <label className="form-label" >DateofPurchase</label>
                                 <input type="date"
-                                name="cusDate"
-                                value={process.cusDate}
+                                name="DateofPurchase"
+                                value={process.Dateofpurchase}
                                 onChange={track}
                                  className="form-control" />
                     </div>
