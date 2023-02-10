@@ -1,10 +1,7 @@
 import { useState } from "react"
-import { Register } from "./BikeServiceForm"
-
 
 export const Login=()=>
 {
-    const[cview,setCview]=useState(false)
 
     const[user,setUser]=useState({
         "username":"",
@@ -24,13 +21,6 @@ export const Login=()=>
 
 
     return(
-        <>
-            {(cview)?
-            <>
-                {alert("new will call")}
-                <Register />
-            </>
-            :
             <>
                 <div className="container">
                     <div className="row justify-content-center mt-5">
@@ -45,7 +35,13 @@ export const Login=()=>
                             </div>
                             <div className="row justify-content-around mt-3">
                                 <button className="col-3 btn btn-outline-primary" onClick={async()=>{
-                                   
+                                   if(user.username==="razak" && user.password==="mohamed"){
+                                    sessionStorage.setItem("auth",user.username);
+                                    window.location.assign("/")
+                                   }
+                                   else{
+                                    alert("invaild values")
+                                   }
                                 }}>
                                     <i class="bi bi-box-arrow-in-right"></i>Login
                                 </button>
@@ -57,8 +53,6 @@ export const Login=()=>
                         </div>
                     </div>
                 </div>
-            </>
-            }
         </>
     )
 }

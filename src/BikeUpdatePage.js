@@ -1,19 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import {  alter1 } from './BikeDetailValues'
+import { displayall, readone, updatebike, updatebikedetails } from './Connect'
 import './Image.css'
 
 
-export let Updating=(myvalue)=>
+export let Updating=()=>
 {
-    const[pos,setPos]=useState(myvalue.who)
-    const[process,setProcess]=useState({
-        "cusId":myvalue.mention.cusId,
-        "cusName":myvalue.mention.cusName,
-        "cusContact":myvalue.mention.cusContact,
-        "cusEmail":myvalue.mention.cusEmail,
-        "cusDate":myvalue.mention.cusDate
-    })
+    const navi=useNavigate()
+    const {id}=useParams()
+    const[process,setProcess]=useState({})
 
     const track=(data)=>
     {
@@ -28,11 +24,22 @@ export let Updating=(myvalue)=>
             }
         )
     }
+ 
 
-    const register=()=>
+    const callLoad=async()=>{
+        const t = await readone(id)
+        setProcess(t.data)
+    }
+    useEffect(()=>{
+        callLoad()
+    },[])
+    const register=async()=>
     {
-        alter1(process,pos)
-        alert("Your values is updated succesfully")
+        let yet=await updatebike(process);
+        alert(JSON.stringify(yet.data))
+        navi("/listallbikedetails")
+        // alter1(process,pos)
+        // alert("Your values is updated succesfully")
         // alert('welcome to Zealous Service Center'+JSON.stringify(process))
         // create(process);
     }
@@ -59,6 +66,14 @@ export let Updating=(myvalue)=>
                                 className="form-control" />
                             </div>
                             <div className="col">
+                                <label className="form-label" >CustomerBikeno</label>
+                                <input type="text" 
+                                name="cusBikeno"
+                                onChange={track}
+                                value={process.cusBikeno}
+                                className="form-control" />
+                            </div>
+                            <div className="col">
                                 <label className="form-label" >CustomerName</label>
                                 <input type="text" 
                                 name="cusName"
@@ -71,9 +86,9 @@ export let Updating=(myvalue)=>
                     <div className="mt-3">
                                 <label className="form-label" >CustomerContact</label>
                                 <input type="tel" 
-                                name="cusContact"
+                                name="cusContactno"
                                 onChange={track}
-                                value={process.cusContact}
+                                value={process.cusContactno}
                                 className="form-control" />
                     </div>
                     <div className="mt-3">
@@ -87,8 +102,8 @@ export let Updating=(myvalue)=>
                     <div className="mt-3">
                                 <label className="form-label" >DateofPurchase</label>
                                 <input type="date"
-                                name="cusDate"
-                                value={process.cusDate}
+                                name="Dateofpurchase"
+                                value={process.Dateofpurchase}
                                 onChange={track}
                                  className="form-control" />
                     </div>

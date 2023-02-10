@@ -19,7 +19,6 @@ export const Homepage=()=>{
                         <NavDropdown.Item href="createbikedetails">Create</NavDropdown.Item>
                         <NavDropdown.Item href="listallbikedetails">ListAll(update & Read & Delete)</NavDropdown.Item>
                         </NavDropdown>
-
                         <NavDropdown title="ServiceDetails" id="basic-nav-dropdown" className="ms-5">
                         <NavDropdown.Item href="createservicedetail">
                             Create
@@ -28,7 +27,11 @@ export const Homepage=()=>{
                         </NavDropdown>
                         </Nav>
                         <Nav className="ms-5">
-                        <button className="btn btn-outline-dark me-5 "   >
+                        <button className="btn btn-outline-dark me-5 " onClick={()=>
+                        {
+                            sessionStorage.removeItem("auth");
+                            window.location.assign("/");
+                        }} >
                                 Logout
                         </button>
                         </Nav>

@@ -1,23 +1,36 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+import { readNum, serviceadding } from "./Connect";
 
 export const Newservicedetail=()=>
 {
+    const nav=useNavigate()
     const[process,setProcess]=useState({
         "bikeJobcardno":0,
-        "bikeIssues":new Array(),
+        "bikeissues":[],
         "bikeDateofservice":"",
         "bikeKilometer":0,
-        "bikeStatus":"",
+        "bikestatus":"",
         "bikeTypeofservice":"",
         "bikeEstimatecharge":0,
         "bikeNewproductcost":0,
         "bikeLabourcharge":0,
+        "bikeDetails1":"",
     })
-    const regis=()=>
-    {
-         alert("Welcome to BikeServicedetails  Process- "+JSON.stringify(process));       
+    const[isu,setIsu]=useState("")
+    const tracking=(e)=>{
+        setIsu(e.target.value)
     }
-
+    const regis=async()=>
+    {
+        const b = await readNum(process.bikeDetails1);
+        process.bikeDetails1=b.data;
+        process.bikeissues=isu.split(",");
+        alert(JSON.stringify(process));
+        const yet=await serviceadding(process);
+        alert(yet.data)
+        nav("/listallservicedetails")
+    }
     const track=(data)=>
     {
         const{name,value}=data.target
@@ -54,14 +67,14 @@ export const Newservicedetail=()=>
                             <label>BikeIssues </label>
                             <input type="text" 
                             placeholder="Problems" 
-                            onChange={track}
-                            value={process.bikeIssues}
+                            onChange={tracking}
+                            value={isu}
                             className="form-control" 
-                            name="bikeIssues"  />
+                            name="isu" />
                         </div>
                         <div className="form group">
                             <label>BikeDateofService </label>
-                            <input type="text" 
+                            <input type="date" 
                             placeholder="yyyy-mm-dd" 
                             onChange={track}
                             value={process.bikeDateofservice}
@@ -83,8 +96,8 @@ export const Newservicedetail=()=>
                             placeholder="approved/Success/Process" 
                             className="form-control"
                             onChange={track}
-                            value={process.bikeStatus} 
-                            name="bikeStatus"  />
+                            value={process.bikestatus} 
+                            name="bikestatus"  />
                         </div>
                         <div className="form group">
                             <label>BikeTypeofservice </label>
@@ -121,6 +134,15 @@ export const Newservicedetail=()=>
                             onChange={track}
                             value={process.bikeLabourcharge} 
                             name="bikeLabourcharge"  />
+                        </div>
+                        <div className="form group">
+                            <label>BikeDetails</label>
+                            <input type="text" 
+                            placeholder="salary for employee" 
+                            className="form-control"
+                            onChange={track}
+                            value={process.bikeDetails1} 
+                            name="bikeDetails1"  />
                         </div>
                         <div className="mt-3 row justify-content-around">
                             <button className="btn btn-outline-info col-2" onClick={regis} >
