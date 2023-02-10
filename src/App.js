@@ -5,6 +5,10 @@ import { Updating } from "./BikeUpdatePage";
 import { ListallbikeDetails } from "./ListallBikeValues";
 import { ListallbServiceDetails } from "./ListallServiceDetails";
 import { Login } from "./LoginPage";
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
 import { Newservicedetail } from "./NewserviceDetails";
 import {  Homepage } from "./PageinHome";
 
@@ -29,8 +33,18 @@ function App() {
     </Routes>
     </BrowserRouter>
       </>
+<<<<<<< HEAD
       :<><Login/></>
     }
+=======
+      :
+      <>
+      <Login/>
+      </>
+    }
+   
+      
+>>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
     </>
   );
 }

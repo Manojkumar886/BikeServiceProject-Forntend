@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { readNum, serviceadding } from "./Connect";
 
+
 export const Newservicedetail=()=>
 {
     const nav=useNavigate()
