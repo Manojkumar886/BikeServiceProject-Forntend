@@ -30,13 +30,9 @@ export const Homepage=()=>{
                         <button className="btn btn-outline-dark me-5 " onClick={()=>
                         {
                             sessionStorage.removeItem("auth");
-<<<<<<< HEAD
+
                             window.location.assign("/");
                         }} >
-=======
-                            window.location.assign("/")
-                        }}>
->>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
                                 Logout
                         </button>
                         </Nav>

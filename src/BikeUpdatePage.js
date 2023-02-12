@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import { displayall, readone, updatebike, updatebikedetails } from './Connect'
+import {  readone, updatebike } from './Connect'
 import './Image.css'
 
 
@@ -32,7 +32,7 @@ export let Updating=()=>
     }
     useEffect(()=>{
         callLoad()
-    },[])
+    })
     const register=async()=>
     {
         let yet=await updatebike(process);

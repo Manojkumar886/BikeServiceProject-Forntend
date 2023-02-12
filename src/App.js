@@ -5,12 +5,9 @@ import { Updating } from "./BikeUpdatePage";
 import { ListallbikeDetails } from "./ListallBikeValues";
 import { ListallbServiceDetails } from "./ListallServiceDetails";
 import { Login } from "./LoginPage";
-<<<<<<< HEAD
-=======
-
->>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
 import { Newservicedetail } from "./NewserviceDetails";
 import {  Homepage } from "./PageinHome";
+import { Readingservice } from "./ServiceReadPage";
 
 
 
@@ -27,24 +24,15 @@ function App() {
       <Route path="listallbikedetails" exact element={<ListallbikeDetails/>}/>
       <Route path="createservicedetail" exact element={<Newservicedetail/>} />
       <Route path="listallservicedetails" exact element={<ListallbServiceDetails/>}/>
-      <Route exact path="/reading/:myid" element={<Reading/>} />
+      <Route path="/reading/:myid" exact element={<Reading/>} />
+      <Route path="/readingservice/:myjobcard" exact element={<Readingservice/>}/>
       <Route path="updateby/:id" exact element={<Updating/>} />
       <Route />
     </Routes>
     </BrowserRouter>
       </>
-<<<<<<< HEAD
       :<><Login/></>
     }
-=======
-      :
-      <>
-      <Login/>
-      </>
-    }
-   
-      
->>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
     </>
   );
 }

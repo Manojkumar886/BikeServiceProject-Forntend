@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { displayall, onremoving, removing } from './Connect';
+import { displayall, onremoving, } from './Connect';
 import './Image.css'
 export const ListallbikeDetails=()=>
 {

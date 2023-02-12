@@ -26,6 +26,12 @@ export const updatebike=async(object)=>
     const t=await axios.put(`${url}/update`,object)
     return t;
 }
+export const updateservice=async(object)=>
+{
+    const t=await axios.put(`${url}/updateservice`,object)
+    return t;
+}
+
 export const onremoving=async(keys)=>
 {
     const t=await axios.delete(`${url}/Delete/${keys}`)
@@ -35,6 +41,12 @@ export const onremoving=async(keys)=>
 export const readone=async(ids)=>
 {
     const t=await axios.get(`${url}/Listone/${ids}`)
+    return t;
+}
+
+export const readoneservice=async(jobcards)=>
+{
+    const t=await axios.get(`${url}/onelist/${jobcards}`)
     return t;
 }
 

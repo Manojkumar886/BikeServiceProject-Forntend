@@ -1,10 +1,4 @@
 import { useState } from "react"
-<<<<<<< HEAD
-
-export const Login=()=>
-{
-
-=======
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import CancelIcon from '@mui/icons-material/Cancel';
 import Person3Icon from '@mui/icons-material/Person3';
@@ -12,7 +6,7 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 
 export const Login=()=>
 {
->>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
+
     const[user,setUser]=useState({
         "username":"",
         "password":""
@@ -29,11 +23,7 @@ export const Login=()=>
     }
 
     return(
-<<<<<<< HEAD
             <>
-=======
-        <>
->>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
                 <div className="container">
                     <div className="row justify-content-center mt-5">
                         <div className="col-lg-6 col-md-8 col-sm-12 p-5 shadow-lg">
@@ -56,7 +46,7 @@ export const Login=()=>
                                 className="form-control" />
                             </div>
                             <div className="row justify-content-around mt-3">
-<<<<<<< HEAD
+
                                 <button className="col-3 btn btn-outline-primary" onClick={async()=>{
                                    if(user.username==="razak" && user.password==="mohamed"){
                                     sessionStorage.setItem("auth",user.username);
@@ -65,18 +55,6 @@ export const Login=()=>
                                    else{
                                     alert("invaild values")
                                    }
-=======
-                                <button className="col-3 btn btn-outline-primary" onClick={()=>
-                                {
-                                    if(user.username==="MANOJKUMAR" && user.password==="manoj123")
-                                    {
-                                        sessionStorage.setItem("auth",user.username)
-                                        window.location.assign("/")
-                                    }
-                                    else{
-                                        alert("invalid values")
-                                    }
->>>>>>> fe94450340523d213154dc454a1bb85f0cbbc02f
                                 }}>
                                     <LockOpenIcon></LockOpenIcon> Login
                                 </button>
