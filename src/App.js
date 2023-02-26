@@ -8,6 +8,7 @@ import { Login } from "./LoginPage";
 import { Newservicedetail } from "./NewserviceDetails";
 import {  Homepage } from "./PageinHome";
 import { Readingservice } from "./ServiceReadPage";
+import { Updateservicedetail } from "./serviceupdatepage";
 
 
 
@@ -15,7 +16,7 @@ function App() {
   return (
     <>
     {
-      (sessionStorage.getItem("auth"))?
+      (sessionStorage.getItem("user"))?
       <>
       <BrowserRouter>
     <Homepage/>
@@ -27,6 +28,7 @@ function App() {
       <Route path="/reading/:myid" exact element={<Reading/>} />
       <Route path="/readingservice/:myjobcard" exact element={<Readingservice/>}/>
       <Route path="updateby/:id" exact element={<Updating/>} />
+      <Route path="updatebyservice/:jobcard" exact element={<Updateservicedetail/>}/>
       <Route />
     </Routes>
     </BrowserRouter>

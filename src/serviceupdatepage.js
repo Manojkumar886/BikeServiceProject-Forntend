@@ -73,7 +73,7 @@ export const Updateservicedetail=()=>
                             <input type="text" 
                             placeholder="Problems" 
                             onChange={tracking}
-                            value={isu}
+                            value={isu.bikeissues}
                             className="form-control" 
                             name="isu" />
                         </div>
@@ -139,6 +139,15 @@ export const Updateservicedetail=()=>
                             onChange={track}
                             value={process.bikeLabourcharge} 
                             name="bikeLabourcharge"  />
+                        </div>
+                        <div className="form group">
+                            <label>BikeFinalpay </label>
+                            <input type="number" 
+                            placeholder="salary for employee" 
+                            className="form-control"
+                            onChange={track}
+                            value={process.bikeFinalpay} 
+                            name="bikeFinalpay"  />
                         </div>
                         <div className="form group">
                             <label>BikeDetails</label>

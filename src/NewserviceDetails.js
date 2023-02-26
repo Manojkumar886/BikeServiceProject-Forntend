@@ -16,7 +16,8 @@ export const Newservicedetail=()=>
         "bikeEstimatecharge":0,
         "bikeNewproductcost":0,
         "bikeLabourcharge":0,
-        "bikeDetails1":"",
+        "bikeFinalpay":0,
+        "bikeDetails1":""
     })
     const[isu,setIsu]=useState("")
     const tracking=(e)=>{
@@ -27,10 +28,9 @@ export const Newservicedetail=()=>
         const b = await readNum(process.bikeDetails1);
         process.bikeDetails1=b.data;
         process.bikeissues=isu.split(",");
-        alert(JSON.stringify(process));
         const yet=await serviceadding(process);
-        alert(yet.data)
-        nav("/listallservicedetails")
+        alert(yet.data);
+        nav("/listallservicedetails");
     }
     const track=(data)=>
     {
@@ -135,6 +135,15 @@ export const Newservicedetail=()=>
                             onChange={track}
                             value={process.bikeLabourcharge} 
                             name="bikeLabourcharge"  />
+                        </div>
+                        <div className="form group">
+                            <label>BikeFinalPay </label>
+                            <input type="number" 
+                            placeholder="Sample" 
+                            className="form-control"
+                            onChange={track}
+                            value={process.bikeFinalpay} 
+                            name="bikeFinalpay"  />
                         </div>
                         <div className="form group">
                             <label>BikeDetails</label>

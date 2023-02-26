@@ -32,7 +32,7 @@ export let Updating=()=>
     }
     useEffect(()=>{
         callLoad()
-    })
+    },[])
     const register=async()=>
     {
         let yet=await updatebike(process);

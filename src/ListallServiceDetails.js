@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { displayallservice } from './Connect';
+import { displayallservice} from './Connect';
 import './Image.css'
 export const ListallbServiceDetails=()=>
 {
@@ -43,7 +43,12 @@ export const ListallbServiceDetails=()=>
                                                 allbikedetails.map((data)=>
                                                 (
                                                     <tr>
-                                                        <td>{data.bikeJobcardno}</td>
+                                                        <td>
+                                                        <a 
+                                                            href={`/readingservice/${data.bikeJobcardno}`}
+                                                             className="btn btn-dark">
+                                                                {data.bikeJobcardno}
+                                                            </a></td>
                                                         <td>{data.bikeissues}</td>
                                                         <td>{data.bikeDateofservice}</td>
                                                         <td>{data.bikeKilometer}</td>
@@ -53,11 +58,17 @@ export const ListallbServiceDetails=()=>
                                                         <td>{data.bikeNewproductcost}</td>
                                                         <td>{data.bikeLabourcharge}</td>
                                                         <td>{data.bikeFinalpay}</td>
-                                                        <td><a 
-                                                            href={`/reading/${data.bikeDetails1.cusId}`}
+                                                        <td>
+                                                            {data.bikeDetails1.cusId}
+                                                        </td>
+                                                        <td>
+                                                        <a 
+                                                            href={`/updatebyservice/${data.bikeJobcardno}`}
                                                              className="btn btn-dark">
-                                                               {data.bikeDetails1.cusId}
-                                                            </a></td>
+                                                                Update
+                                                            </a>
+                                                            
+                                                        </td>
                                                     </tr>
                                                 ))
                                             }

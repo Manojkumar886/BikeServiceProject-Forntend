@@ -29,7 +29,7 @@ export const Homepage=()=>{
                         <Nav className="ms-5">
                         <button className="btn btn-outline-dark me-5 " onClick={()=>
                         {
-                            sessionStorage.removeItem("auth");
+                            sessionStorage.removeItem("user");
 
                             window.location.assign("/");
                         }} >
