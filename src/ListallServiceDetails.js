@@ -9,6 +9,7 @@ export const ListallbServiceDetails=()=>
     const loadingRecords=async()=>{
         
         const t = await displayallservice();
+        
         setAllbikedetails(t.data)
     }
 
@@ -59,7 +60,7 @@ export const ListallbServiceDetails=()=>
                                                         <td>{data.bikeLabourcharge}</td>
                                                         <td>{data.bikeFinalpay}</td>
                                                         <td>
-                                                            {data.bikeDetails1.cusId}
+                                                            {data.bike}
                                                         </td>
                                                         <td>
                                                         <a 

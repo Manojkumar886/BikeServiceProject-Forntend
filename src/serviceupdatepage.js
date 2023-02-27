@@ -31,7 +31,7 @@ export const Updateservicedetail=()=>
     }
     useEffect(()=>{
         callLoad()
-    })
+    },[])
 
     const[isu,setIsu]=useState("")
 
@@ -58,7 +58,7 @@ export const Updateservicedetail=()=>
                 <h1 className="text-center  fs-5 mt-5" id="texting" >New ServiceDetails Generated</h1>
                 <div className="row justify-content-center">
                     <div className="col-lg-7 col-md-9 col-sm-12 p-4 shadow-lg rounded-5">
-                        <div className="form group">
+                    <div className="form group">
                             <label>BikeJobcardNumber</label>
                             <input type="text" 
                             className="form-control" 
@@ -73,7 +73,7 @@ export const Updateservicedetail=()=>
                             <input type="text" 
                             placeholder="Problems" 
                             onChange={tracking}
-                            value={isu.bikeissues}
+                            value={isu}
                             className="form-control" 
                             name="isu" />
                         </div>
@@ -141,9 +141,9 @@ export const Updateservicedetail=()=>
                             name="bikeLabourcharge"  />
                         </div>
                         <div className="form group">
-                            <label>BikeFinalpay </label>
+                            <label>BikeFinalPay </label>
                             <input type="number" 
-                            placeholder="salary for employee" 
+                            placeholder="Sample" 
                             className="form-control"
                             onChange={track}
                             value={process.bikeFinalpay} 
